@@ -5,7 +5,7 @@ let lives = 0;
 let find = "";
 let guessed = "";
 let startBtn = document.getElementById("startBtn");
-let game = document.getElementById("game")
+let game = document.getElementById("game");
 
 
 startBtn.addEventListener("click", () => {
@@ -14,6 +14,11 @@ startBtn.addEventListener("click", () => {
     game.style.display = "flex";
     setupGame();
     startGame();
+});
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+    document.getElementById("end").style.display = "none";
+    document.getElementById("start").style.display = "flex";
 });
 
 function setupGame(){
@@ -44,7 +49,6 @@ function startTurn(e){
         }
     }
     checkWin();
-    console.log("find = " + find + "\nlives = " + lives);
 }
 
 function checkWin(){
