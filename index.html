@@ -12,14 +12,23 @@
         .letter{
             padding: 0.5em
         }
+        .end{
+            display: none;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
     <div class="content">
         <div class="start" id="start">
-            <input id="startBtn" type="button" value="start game!">
+            <input id="startBtn" type="button" value="start">
         </div>
         <div class="game" id="game"></div>
+        <div class="end" id="end">
+            <p><span class="result" id="result"></span> the game!</p>
+            <p>the word was <span class="word" id="word"></span></p>
+            <input id="resetBtn" type="button" value="main menu">
+        </div>
         <script src="script.js"></script>
     </div>
 </body>

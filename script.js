@@ -11,7 +11,7 @@ let game = document.getElementById("game")
 startBtn.addEventListener("click", () => {
     random = getRandom();
     document.getElementById("start").style.display = "none";
-    document.getElementById("game").style.display = "flex";
+    game.style.display = "flex";
     setupGame();
     startGame();
 });
@@ -49,9 +49,25 @@ function startTurn(e){
 
 function checkWin(){
     if (find == random.length)
-        console.log("winner");
+        showResult(1);
     else if (lives <= 0)
-        console.log("looser!");
+        showResult(0);
+}
+
+function showResult(win){
+    let result = (win) ? "Congratulation, you win" : "oh nooo... you loose";
+    game.style.display = "none";
+    document.getElementById("result").innerHTML = result;
+    document.getElementById("word").innerHTML = random;
+    document.getElementById("end").style.display = "flex";
+    reset();
+}
+
+function reset(){
+    while (game.firstChild) {
+        game.removeChild(game.firstChild);
+    }
+    document.onkeydown = null;
 }
 
 function showLetter(key){
